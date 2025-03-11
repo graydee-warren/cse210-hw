@@ -4,8 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("starting program..");
-
         
         //Create a journal instance. 
         Journal journal = new Journal();

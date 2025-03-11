@@ -30,9 +30,9 @@ public class Journal
         {
             Console.WriteLine("The Journal is emply.");
         }
+        //Display each entry
         foreach (Entry entry in _entries)
         {
-            Console.WriteLine("test");
             Console.WriteLine(entry.GetDisplayString());
             Console.WriteLine("-------------------------------"); //Seperator for readability
         }
@@ -40,6 +40,7 @@ public class Journal
 
     public void SaveToFile(string filename)
     {
+        //Save to file with error handling.
         try 
         {
             File.WriteAllLines(filename, _entries.Select(entry => entry.GetFileString()));
@@ -54,6 +55,7 @@ public class Journal
     
     public void LoadFromFile(string filename)
     {
+        //Load filename with error handling.
         try
         {
             if (!File.Exists(filename))
@@ -72,7 +74,7 @@ public class Journal
                 string[] parts = line.Split('|');
                 if (parts.Length == 3)
                 {
-                    
+                    //Assign each part of the entry to a part.
                     string _date = parts[0];
                     string _prompt = parts[1].Replace("\\|", "|");
                     string _response = parts[2].Replace("\\|", "|");

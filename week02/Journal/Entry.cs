@@ -7,9 +7,9 @@ public class Entry
     public Entry (string prompt, string response, string date)
     {
         //Initialize member variables
-        string _prompt = prompt;
-        string _response = response;
-        string _date = date;
+        _prompt = prompt;
+        _response = response;
+        _date = date;
 
     }
 
