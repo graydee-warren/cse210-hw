@@ -13,7 +13,13 @@ public class Journal
             "What was the best part of my day?",
             "How did I see the hand of the Lord in my life today?",
             "What was the strongest emotion I felt today?",
-            "If I had one thing I could do over today, what would it be?"
+            "If I had one thing I could do over today, what would it be?",
+            "If I had one thing I could do over today, what would it be?",
+            "What's one small victory I achieved today that I'm proud of?",        
+            "How did I handle a challenge or setback today?",                     
+            "What's something I noticed about the world around me today?",        
+            "Who or what inspired me today, and why?",                           
+            "What's one question I'd love to have answered by the end of tomorrow?" 
         };
     }
 
@@ -33,6 +39,7 @@ public class Journal
         //Display each entry
         foreach (Entry entry in _entries)
         {
+            Console.WriteLine("-------------------------------"); //Seperator for readability
             Console.WriteLine(entry.GetDisplayString());
             Console.WriteLine("-------------------------------"); //Seperator for readability
         }
@@ -78,9 +85,10 @@ public class Journal
                     string _date = parts[0];
                     string _prompt = parts[1].Replace("\\|", "|");
                     string _response = parts[2].Replace("\\|", "|");
+                    string _mood = parts[3].Replace("\\|", "|");
 
                     // Create and add the entry
-                    Entry entry = new Entry(_prompt, _response, _date);
+                    Entry entry = new Entry(_prompt, _response, _date, _mood);
                     _entries.Add(entry);
                 }
                 else

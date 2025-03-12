@@ -2,9 +2,16 @@ using System;
 
 class Program
 {
+    // Exceeding Requirements:
+    // Added a '_mood' field to the Entry class to store the user's emotional state with each entry.
+    // This enhances the journal by capturing more context about the user's day, making it more reflective
+    // and addressing a potential barrier to journaling (lack of emotional insight). Updated WriteNewEntry()
+    // to prompt for mood, and adjusted Entry and Journal classes to handle this new field in display,
+    // save, and load operations.
+
     static void Main(string[] args)
     {
-        
+
         //Create a journal instance. 
         Journal journal = new Journal();
         
@@ -78,11 +85,15 @@ class Program
         Console.Write("Your response: ");
         string response = Console.ReadLine();
 
+        //See how the user is feeling.
+        Console.Write("How were you feeling? (e.g.. happy, sad, tired): "); 
+        string mood = Console.ReadLine();
+
         //Use current date.
         string date = DateTime.Now.ToString("MMMM dd, yyyy");
 
         //Create new entry and add to journal. 
-        Entry entry = new Entry(prompt, response, date);
+        Entry entry = new Entry(prompt, response, date, mood);
         journal.AddEntry(entry);
         Console.WriteLine("Entry added!");
     }
