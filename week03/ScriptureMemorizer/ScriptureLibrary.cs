@@ -24,5 +24,4 @@ class ScriptureLibrary
         }
         return _scriptures[_random.Next(_scriptures.Count)];
     }
-
 }

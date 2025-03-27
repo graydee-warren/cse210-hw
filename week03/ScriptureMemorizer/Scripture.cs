@@ -4,15 +4,18 @@ using System;
 
 public class Scripture
 {
-    private Reference _reference;
-    private List<Word> _words;
+    private Reference _reference; //Reference object to this scripture
+    private List<Word> _words; //List of word Objects
 
+    //Initializes the scripture with a reference and splits the text into words
     public Scripture (Reference reference, string text)
     {
         _reference = reference;
         _words = text.Split(' ').Select(w => new Word(w)).ToList();
     }
 
+    //Hides a specified number of random words (that are visible)
+    //Also ensures that it does not hide more words than are visible using math.min
     public void HideRandomWords(int numberToHide)
     {
         Random random = new Random();
